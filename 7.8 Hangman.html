@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf8" />
+		<title>Hangman</title>
+		<script src="hangman.js"></script>
+		<link href="hangman.css" rel="stylesheet"/>
+	</head>
+
+	<body>
+		<div class="alert none">
+	     <div class="alert-danger"  id="message" style="height: 40px;">
+ 		  <button type="button" class="close btnCorner" aria-label="Close" onclick="show(-1, '')">
+   		  <span aria-hidden="true">&times;</span>
+		  </button>
+ 		  <p></p> 
+ 		 </div>
+		</div>
+		<div class="container">
+		 <!--Game options-->
+		 <div class="game-options">
+		  <header>
+		   <h1 onclick="reset(0)">Hangman</h1>
+		  </header>
+		  <nav>
+		   <a href="../Tic Tac Toe/index.html"><p>Page 1</p></a>
+		   <a href=""><p>Page 2</p></a>
+		   <a href=""><p>Page 3</p></a>
+		  </nav>
+		  <div class="game-options-container">
+	       <div class="game-options-choice single" onclick="play(0)">
+	        <h2>Singelplayer</h2>
+	       </div>
+	       <div class="game-options-choice multi" onclick="play(1)">
+	        <h2>Multiplayer</h2>
+	       </div>
+
+	       <div class="game-options-choice input">
+	      	<h3>Your hidden word:</h3><input type="text" id="txtY" onkeydown="updateLength()" maxlength="100">
+	      	<p>Number of letters per word left: <span id="wordLength">10</span></p>
+	       	<button type="button" onclick="play(2)">Submit</button>
+	       </div>
+	      </div>
+		 </div>
+		 <!--End of game options-->
+
+		 <!--Game-->
+		 <div class="game-main">
+		  <header>
+		   <h1 onclick="reset(0)">Hangman</h1>
+		  </header>
+		  <div class="sub-header">
+		   <label>Letter</label>
+		   <input id="txtX" type="text" />
+		   <button onclick="checkWord()" id="check" type="button">Submit</button>
+		   <button id="reset" onclick="reset(1)">Play agian!</button>
+		  </div>
+		  <div class="main-game-container">
+		   <div class="word-container">
+		    <div class="word-column1">
+		     <p>Tries <span id="tries"></span> / 14</p>
+		    </div>
+		    <div class="word-column2">
+		    </div>
+		    <div class="word-column3">
+		     <h2>Used words</h2>	
+		     <p id="border"></p>
+		    </div>
+		   </div>
+		   <div class="canvas-container">
+		    <canvas id="canvas" height="400" width="400"></canvas>
+		   </div>		
+		  </div>
+		 </div>
+		<!--End of game-->
+		</div>
+		<!--End of container-->
+		<footer>	
+		</footer>
+	</body>
+</html>
